@@ -1,22 +1,29 @@
-# Membuka file dalam mode 'r'
-with open("contoh.txt", "r") as file:
-  a = file.read()
-  print(a)
+# File Handling Modes in Python
 
-# Membaca per baris
-with open("contoh.txt", "r") as file:
-  for baris in file:
-    print(baris)
+# Mode 'r' (Read-Only)
+try:
+    with open("example.txt", "r") as file:
+        content = file.read()
+        print("Mode 'r' (Read-Only):")
+        print(content)
+except FileNotFoundError:
+    print("File not found for mode 'r'.")
 
-with open("contoh.txt", "r") as file:
-  print(file.readline())
+# Mode 'w' (Write)
+with open("example.txt", "w") as file:
+    file.write("This is a new file.\n")
+    file.write("All previous content is overwritten.")
+print("\nMode 'w' (Write): File overwritten.")
 
-# Overwrite ke file
-with open("contoh.txt", "w") as file:
-  file.write("Hello, World\n")
-  file.write("file handling in ptyhon.")
+# Mode 'a' (Append)
+with open("example.txt", "a") as file:
+    file.write("\nThis line is appended to the file.")
+print("\nMode 'a' (Append): Content appended.")
 
-# Menambahkan tulisan diakhir
-with open("contoh.txt", "a") as file:
-  file.write("\nini akan ditambahkan diakhir")
-
+# Mode 'x' (Exclusive Creation)
+try:
+    with open("new_file.txt", "x") as file:
+        file.write("This file is newly created.")
+    print("\nMode 'x' (Exclusive Creation): File created.")
+except FileExistsError:
+    print("\nMode 'x' (Exclusive Creation): File already exists!")
