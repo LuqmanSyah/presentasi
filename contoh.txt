@@ -1,3 +1,2 @@
-Hello, World
-file handling in ptyhon.
-ini akan ditambahkan diakhir
+Halo guys
+Ini ditambah diakhir
